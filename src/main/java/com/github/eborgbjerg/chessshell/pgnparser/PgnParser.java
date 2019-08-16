@@ -13,7 +13,11 @@ public class PgnParser {
     }
 
     public void parse() {
-        source.readSymbol(); // todo
+        while (!source.isDone()) {
+            source.readSymbol();
+            source.getSymbolType();
+            // todo state objects to handle situation + notify receiver
+        }
     }
 
 

@@ -70,6 +70,7 @@ public class SymbolGetter implements PgnSource {
         }
     }
 
+    @Override
     public PgnSymbolType getSymbolType() {
         return this.symbolType;
     }
@@ -86,6 +87,7 @@ public class SymbolGetter implements PgnSource {
         return (char) buffer[index++];
     }
 
+    @Override
     public boolean isDone() {
         return done;
     }
