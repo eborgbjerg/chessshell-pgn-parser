@@ -11,6 +11,7 @@ public class OneBigMain {
     // with 1G file on local file system:
     // + direct: ~3s
     // + parser: ~3s
+    // + Scid imports the file in ~ 45 minute, creating a native database in the process.
 
 
     private static boolean sensor;
