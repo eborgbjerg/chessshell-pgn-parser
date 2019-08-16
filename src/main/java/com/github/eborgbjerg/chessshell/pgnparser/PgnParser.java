@@ -13,8 +13,7 @@ public class PgnParser {
     }
 
     public void parse() {
-        // source delivers a symbol
-        source.getSymbol();
+        source.readSymbol(); // todo
     }
 
 
@@ -33,7 +32,7 @@ public class PgnParser {
             Objects.requireNonNull(this.source);
             Objects.requireNonNull(this.pgnParserReceiver);
 
-            return new PgnParser(this.source, null);
+            return new PgnParser(this.source, pgnParserReceiver);
         }
     }
 

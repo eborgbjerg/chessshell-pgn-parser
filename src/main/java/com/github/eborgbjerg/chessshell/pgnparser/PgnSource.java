@@ -3,7 +3,7 @@ package com.github.eborgbjerg.chessshell.pgnparser;
 interface PgnSource {
 
     /**
-     * Get next symbol.
+     * Read a symbol.
      */
-    void getSymbol();
+    void readSymbol();
 }

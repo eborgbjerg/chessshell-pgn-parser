@@ -2,6 +2,8 @@ package com.github.eborgbjerg.chessshell.pgnparser;
 
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class PgnParserBuilderTest {
 
     @Test(expected = RuntimeException.class)
@@ -10,19 +12,21 @@ public class PgnParserBuilderTest {
     }
 
     @Test
-    public void withEmptySourceString() {
-        PgnParser parser = new PgnParser.Builder(new PgnSourceString(""), new TestPgnParserReceiver()).build();
+    public void withEmptySourceString() throws IOException {
+        PgnParser parser = new PgnParser.Builder(new SymbolGetter(""), new TestPgnParserReceiver()).build();
+        parser.parse();
+        // todo assert receivers state
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void withNullSourceString() throws IOException {
+        PgnParser parser = new PgnParser.Builder(new SymbolGetter((String) null), new TestPgnParserReceiver()).build();
         parser.parse();
     }
 
     @Test
-    public void withNullSourceString() {
-        PgnParser parser = new PgnParser.Builder(new PgnSourceString(null), new TestPgnParserReceiver()).build();
-        parser.parse();
-    }
-
-    public void withTinySourceString() {
-        PgnParser parser = new PgnParser.Builder(new PgnSourceString("1.e4"), new TestPgnParserReceiver()).build();
+    public void withTinySourceString() throws IOException {
+        PgnParser parser = new PgnParser.Builder(new SymbolGetter("1.e4"), new TestPgnParserReceiver()).build();
         parser.parse();
     }
 

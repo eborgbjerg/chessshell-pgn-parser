@@ -2,11 +2,11 @@ package com.github.eborgbjerg.chessshell.pgnparser
 
 import spock.lang.Specification
 
-class StringSymbolGetterTest extends Specification {
+class SymbolGetterTest extends Specification {
 
     def 'parse tiny string'() {
         given:
-        def symbolGetter = new StringSymbolGetter('1.e4')
+        def symbolGetter = new SymbolGetter('1.e4')
 
         when:
         symbolGetter.readSymbol()
